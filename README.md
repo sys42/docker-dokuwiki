@@ -18,13 +18,13 @@ Since we have to perform some manual steps we start the container in interactive
 docker run -ti --rm -w /usr/share/nginx/html -p 30000:80 sys42/docker-dokuwiki bash
 ```
 
-Now open http://127.0.0.1:3000/install.php in your browser and configurate the access pattern and the admin account.
+Now open [http://127.0.0.1:3000/install.php](http://127.0.0.1:3000/install.php) in your browser and configurate the access pattern and the admin account.
 
 #### Step 2: Install plugin gitbacked
 
 Log into the your wiki installation and open the following page:
 
-http://localhost:30000/doku.php?id=start&do=admin&page=extension&tab=search&q=
+[http://localhost:30000/doku.php?id=start&do=admin&page=extension&tab=search&q=](http://localhost:30000/doku.php?id=start&do=admin&page=extension&tab=search&q=)
 
 Search for extension __gitbacked__ and click install
 
@@ -52,10 +52,10 @@ mv data/media data/gitrepo/
 
 Navigate with your browser to the Admin Section Configuration at:
 
-http://localhost:30000/doku.php?id=start&do=admin&page=config
+[http://localhost:30000/doku.php?id=start&do=admin&page=config](http://localhost:30000/doku.php?id=start&do=admin&page=config)
 
-1. Change "Path of the git repo" to ./data/gitrepo
-2. Change "Path of the git working tree" ./data/gitrepo
+1. Change "Path of the git repo" to `./data/gitrepo`
+2. Change "Path of the git working tree" `./data/gitrepo`
 
 #### Step 5: Configurate Git
 
@@ -88,6 +88,7 @@ I'm still not sure how to do this correctly. IMHO I don't want to embedded githu
   2. should the container perform a checkout during start?
   3. ... or should it use a external data volume managed separately?
   4. how to automate all the above config steps? Especially step 1 and step 5 with custom settings?
+  5. is there a way to pass github credentials as environment variables?
 
-
+Maybe its external data volume approach is better. This way I can decouple the github pushing from the Wiki itself, which means the github credentials are not available on the host facing the internet.
 
