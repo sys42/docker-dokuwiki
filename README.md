@@ -92,3 +92,4 @@ I'm still not sure how to do this correctly. IMHO I don't want to embedded githu
 
 Maybe its external data volume approach is better. This way I can decouple the github pushing from the Wiki itself, which means the github credentials are not available on the host facing the internet.
 
+Until I have a good solution for the above points, I'll stay with the actual setup. Commiting containers back to images to store the internal git repo is, of course, quite 'hackish', but it works for now and covers also configuration changes.
